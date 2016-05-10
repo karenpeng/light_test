@@ -7,9 +7,10 @@
     "test": "test"
   },
   "dependencies": {
+    "brfs": "^1.4.3",
     "es6-promise": "^3.0.2",
-    "webvr-polyfill": "^0.2.4",
-    "three": "^0.73"
+    "three": "^0.73",
+    "webvr-polyfill": "^0.2.4"
   },
   "devDependencies": {
     "browserify": "latest",
@@ -17,9 +18,7 @@
     "watchify": "latest"
   },
   "scripts": {
-    "build": "browserify src/main.js | derequire > build/webvr-manager.js",
-    "watch": "watchify src/main.js -v -d -o build/webvr-manager.js",
-    "test": "browserify test/device-info-test.js  > build/device-info-test.js"
+    "build": "browserify -t brfs lib/shaders3.js > lib/shaders-bundle.js"
   },
   "repository": {
     "type": "git",
